@@ -44,5 +44,6 @@ TODO
 
 ## License
 Copyright © 2019 rumboalla.
-Licensed under the GNU General Public License v3.
+
+Licensed under the MIT license.
 
