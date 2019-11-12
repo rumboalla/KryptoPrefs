@@ -58,7 +58,7 @@ val prefs = KryptoBuilder.hybrid(context, "MyPrefs")
 ### Custom KryptoPref
 You can create your own KryptoPref:
 ```kotlin
-KryptoPrefsImpl(context, prefsName, AesCbcEncryption(), Sha512Hash(), Pbkdf2Key(fixedPass, salt))
+val prefs = KryptoPrefsImpl(context, "MyPrefs", AesCbcEncryption(), Sha512Hash(), Pbkdf2Key(MyPassword, MySalt))
 ```
 
 ### Using JSON types
