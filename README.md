@@ -96,5 +96,5 @@ prefs.intPref.addObserver { newValue = it }
 
 ## License
 Copyright © 2019 rumboalla.  
-Licensed under the MIT license.
+Licensed under the [MIT](https://github.com/rumboalla/KryptoPrefs/blob/master/LICENSE) license.
 
