@@ -1,4 +1,4 @@
-# KryptoPrefs
+# KryptoPrefs [![](https://jitpack.io/v/rumboalla/KryptoPrefs.svg)](https://jitpack.io/#rumboalla/KryptoPrefs)
 **KryptoPrefs** is an open source Kotlin library for handling encrypted SharedPreferences in Android.
 
 ## Features
@@ -95,7 +95,6 @@ prefs.intPref.addObserver { newValue = it }
 ```
 
 ## License
-Copyright © 2019 rumboalla.
-
+Copyright © 2019 rumboalla.  
 Licensed under the MIT license.
 
