@@ -8,11 +8,11 @@
 * Usable from **Java** and **Kotlin**.
 * Supports the **Android Keystore**.
 * **KryptoContext** for higher level features:
-    * Supported types: string, int, long, boolean, date, double, float, short, byte, char and enum.
-    * Types can be nullable.
-    * Types can be memory backed.
-    * Types can be observed.
-    * Custom types with your custom transform (e.g. JSON).
+    * **Supported types**: string, int, long, boolean, date, double, float, short, byte, char and enum.
+    * Types can be **nullable**.
+    * Types can be **memory backed**.
+    * Types can be **observed**.
+    * **Custom types** with your custom transform (e.g. JSON).
 
 ## Getting started
 Add the library to your project.
