@@ -90,8 +90,8 @@ val prefs = KryptoPrefsImpl(context, "MyPrefs", AesCbcEncryption(), Sha512Hash()
 ### Asynchronous operations
 You can do async reads and writes:
 ```kotlin
-   stringPref.putAsync("MyString")
-   stringPref.getAsync { newValue = it }
+stringPref.putAsync("MyString")
+stringPref.getAsync { newValue = it }
 ```
 
 ### Using JSON types
