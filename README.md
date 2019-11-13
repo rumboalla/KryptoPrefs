@@ -38,6 +38,10 @@ class Prefs(prefs: KryptoPrefs): KryptoContext(prefs) {
     val intPref = int("intPref", 42)
     val booleanPref = boolean("booleanPref", false)
 }
+
+val prefs = Prefs(KryptoBuilder.hybrid(context, "MyPrefs"))
+prefs.stringPref = "MyString"           // Write to prefs
+val stringPref = prefs.stringPref()     // Read from prefs
 ```
 
 ## Advanced usage
@@ -70,7 +74,7 @@ class JsonTransform<T: Any>(private val type: Class<T>, private val gson: Gson =
     override fun transform(t: String?): T? = gson.fromJson(t, type)
 }
 ``` 
-And the use it, inside the PreferenceContext:
+And then, use it inside the PreferenceContext:
 ```kotlin
 val customPref = custom("customPref", defaultValue, JsonTransform(CustomClass::class.java))
 ```
