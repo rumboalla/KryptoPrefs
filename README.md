@@ -52,17 +52,31 @@ val stringPref = prefs.stringPref()     // Read from prefs
 ## Advanced usage
 ### KryptoPref modes
 * Default: Uses the best possible encryption method available (no Keystore) at the specified API level.
-   * API < 10: AesCbcEncryption, Sha512Hash, PbeKey
-   * API < 19: AesCbcEncryption, Sha512Hash, Pbkdf2Key
-   * API  19+: AesGcmEncryption, Sha512Hash, Pbkdf2Key
+
+| API | Encryption | Hash | Key |
+|---|---|---|---|
+| 9 | AesCbcEncryption | Sha512Hash | PbeKey |
+| 10+ | AesCbcEncryption | Sha512Hash | Pbkdf2Key |
+| 19+ | AesGcmEncryption | Sha512Hash | Pbkdf2Key |
+ 
 ```kotlin
 val prefs = KryptoBuilder.pref(context, "MyPrefs", MyPassword, MySalt, ApiTarget)
 ``` 
-* Keystore: Uses the Keystore for everything. More security, less performance. Only available for API 23+
+* Keystore: Uses the Keystore for everything. More security, less performance.
+
+| API | Encryption | Hash | Key |
+|---|---|---|---|
+| 23+ | AesGcmEncryption | Sha512Hash | KeystoreKey |
+
 ```kotlin
 val prefs = KryptoBuilder.keystore(context, "MyPrefs")
 ``` 
 * Hybrid: Uses the Keystore for the key, normal for everything else. Good compromise between security and performance.
+
+| API | Encryption | Hash | Key |
+|---|---|---|---|
+| 23+ | AesGcmEncryption | Sha512Hash | HybridKey |
+
 ```kotlin
 val prefs = KryptoBuilder.hybrid(context, "MyPrefs")
 ``` 
