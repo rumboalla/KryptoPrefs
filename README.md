@@ -51,11 +51,14 @@ val stringPref = prefs.stringPref()     // Read from prefs
 
 ## Advanced usage
 ### KryptoPref modes
-* Default: Uses the best possible encryption method available at the specified API level.
+* Default: Uses the best possible encryption method available (no Keystore) at the specified API level.
+   * API < 10: AesCbcEncryption, Sha512Hash, PbeKey
+   * API < 19: AesCbcEncryption, Sha512Hash, Pbkdf2Key
+   * API  19+: AesGcmEncryption, Sha512Hash, Pbkdf2Key
 ```kotlin
 val prefs = KryptoBuilder.pref(context, "MyPrefs", MyPassword, MySalt, ApiTarget)
 ``` 
-* Keystore: Uses the Keystore for everything. More security, less performance.
+* Keystore: Uses the Keystore for everything. More security, less performance. Only available for API 23+
 ```kotlin
 val prefs = KryptoBuilder.keystore(context, "MyPrefs")
 ``` 
