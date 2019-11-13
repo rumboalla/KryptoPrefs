@@ -2,13 +2,17 @@
 **KryptoPrefs** is an open source Kotlin library for handling encrypted SharedPreferences in Android.
 
 ## Features
-* Small library, no dependencies.
-* High compatibility (API 9 to API 29)
-* Easy to use and extend.
-* Usable from Java and Kotlin.
-* Supports several encryption methods, including the Android Keystore.
-* Split in two parts, KryptoPrefs for low level and KryptoContext for high level.
-* Supports many types: string, int, long, boolean, date, double, float, short, byte, char, enum and custom (create your own transformation). Types can also be nullable and memory backed.
+* **Lightweight** library (~70 KB) with **no dependencies**.
+* High **compatibility** (API 9 to API 29).
+* **Modular**: Use the provided algorithms or provide your own.
+* Usable from **Java** and **Kotlin**.
+* Supports the **Android Keystore**.
+* **KryptoContext** for higher level features:
+    * Supported types: string, int, long, boolean, date, double, float, short, byte, char and enum.
+    * Types can be nullable.
+    * Types can be memory backed.
+    * Types can be observed.
+    * Custom types with your custom transform (e.g. JSON).
 
 ## Getting started
 Add the library to your project.
@@ -45,7 +49,7 @@ val stringPref = prefs.stringPref()     // Read from prefs
 ```
 
 ## Advanced usage
-### KryptoPref types
+### KryptoPref modes
 * Default: Uses normal encryption for everything.
 ```kotlin
 val prefs = KryptoBuilder.pref(context, "MyPrefs", MyPassword, MySalt, ApiTarget)
