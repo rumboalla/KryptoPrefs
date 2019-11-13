@@ -51,7 +51,7 @@ val stringPref = prefs.stringPref()     // Read from prefs
 
 ## Advanced usage
 ### KryptoPref modes
-* Default: Uses normal encryption for everything.
+* Default: Uses the best possible encryption method available at the specified API level.
 ```kotlin
 val prefs = KryptoBuilder.pref(context, "MyPrefs", MyPassword, MySalt, ApiTarget)
 ``` 
