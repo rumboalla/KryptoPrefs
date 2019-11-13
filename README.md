@@ -13,6 +13,7 @@
     * Types can be **memory backed**.
     * Types can be **observed**.
     * **Custom types** with your custom transform (e.g. JSON).
+    * **Asynchronous** reads and writes.
 
 ## Getting started
 Add the library to your project.
@@ -67,6 +68,13 @@ val prefs = KryptoBuilder.hybrid(context, "MyPrefs")
 You can create your own KryptoPref:
 ```kotlin
 val prefs = KryptoPrefsImpl(context, "MyPrefs", AesCbcEncryption(), Sha512Hash(), Pbkdf2Key(MyPassword, MySalt))
+```
+
+### Asynchronous operations
+You can do async reads and writes:
+```kotlin
+   stringPref.putAsync("MyString")
+   stringPref.getAsync { newValue = it }
 ```
 
 ### Using JSON types
