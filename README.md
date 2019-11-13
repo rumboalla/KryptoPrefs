@@ -4,7 +4,7 @@
 ## Features
 * **Lightweight** library (~70 KB) with **no dependencies**.
 * High **compatibility** (API 9 to API 29).
-* **Modular**: Use the provided algorithms or provide your own.
+* **Modular**: Use the provided algorithms or make your own.
 * Usable from **Java** and **Kotlin**.
 * Supports the **Android Keystore**.
 * **KryptoContext** for higher level features:
