@@ -25,7 +25,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs:0.2'
+    implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs:0.2.2'
 }
 ```
 
@@ -97,7 +97,7 @@ stringPref.getAsync { newValue = it }
 ### Using custom types, collections and JSON
 Add kryptoprefs-gson to your project:
 ```groovy
-implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs-gson:0.2'
+implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs-gson:0.2.2'
 ```
 Use **json** type in your **KryptoContext**:
 ```kotlin
