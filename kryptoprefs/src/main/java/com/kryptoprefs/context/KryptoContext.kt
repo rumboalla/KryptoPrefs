@@ -21,8 +21,8 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 open class KryptoContext @JvmOverloads protected constructor(
-        protected val prefs: KryptoPrefs,
-        protected val pool: ExecutorService = Executors.newFixedThreadPool(getRuntime().availableProcessors())
+	val prefs: KryptoPrefs,
+	val pool: ExecutorService = Executors.newFixedThreadPool(getRuntime().availableProcessors())
 ) {
 
     val backedPrefs = mutableListOf<MemoryBackedPreference<*>>()

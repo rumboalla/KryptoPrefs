@@ -2,7 +2,6 @@ package com.kryptoprefs
 
 import android.content.Context
 import android.provider.Settings
-import android.security.keystore.KeyProperties
 import android.security.keystore.KeyProperties.BLOCK_MODE_CBC
 import android.security.keystore.KeyProperties.BLOCK_MODE_GCM
 import android.security.keystore.KeyProperties.ENCRYPTION_PADDING_NONE

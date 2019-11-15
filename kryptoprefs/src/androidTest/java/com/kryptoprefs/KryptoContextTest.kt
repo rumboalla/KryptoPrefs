@@ -447,6 +447,14 @@ class KryptoContextTest {
     }
 
     @Test
+    fun test() {
+//        val l = listOf("String", "Test", "dfjsodklfj")
+//        prefs.json(l)
+//        val j = prefs.json()
+//        assertThat(j == l)
+    }
+
+    @Test
     @SuppressWarnings("MagicNumber")
     fun preference_async() {
         val latch = CountDownLatch(4)
