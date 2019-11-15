@@ -8,7 +8,7 @@
 * Usable from **Java** and **Kotlin**.
 * Supports the **Android Keystore**.
 * **KryptoContext** for higher level features:
-    * **Supported types**: string, int, long, boolean, date, double, float, short, byte, char and enum.
+    * **Supported types**: string, int, long, boolean, date, double, float, short, byte, char, enum and json.
     * Types can be **nullable**.
     * Types can be **memory backed**.
     * Types can be **observed**.
@@ -25,7 +25,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.rumboalla:KryptoPrefs:0.1'
+    implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs:0.2'
 }
 ```
 
@@ -94,18 +94,17 @@ stringPref.putAsync("MyString")
 stringPref.getAsync { newValue = it }
 ```
 
-### Using JSON types
-In order to have JSON types in your **KryptoContext** you have to create a transformer.
-Example using Gson:
+### Using custom types, collections and JSON
+Add kryptoprefs-gson to your project:
+```groovy
+implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs-gson:0.2'
+```
+Use **json** type in your **KryptoContext**:
 ```kotlin
-class JsonTransform<T: Any>(private val type: Class<T>, private val gson: Gson = Gson()): Transform<T> {
-    override fun transform(t: T?): String? = gson.toJson(t)
-    override fun transform(t: String?): T? = gson.fromJson(t, type)
+class Prefs(prefs: KryptoPrefs): KryptoContext(prefs) {
+    val jsonPref = json("jsonPref", TestClass())
+    val listPref = json("listPref", emptyList<TestClass>())
 }
-``` 
-And then, use it inside the **KryptoContext**:
-```kotlin
-val customPref = custom("customPref", defaultValue, JsonTransform(CustomClass::class.java))
 ```
 
 ### Nullable types
