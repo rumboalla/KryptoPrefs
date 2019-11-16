@@ -45,8 +45,10 @@ class Prefs(prefs: KryptoPrefs): KryptoContext(prefs) {
 }
 
 val prefs = Prefs(KryptoBuilder.hybrid(context, "MyPrefs"))
-prefs.stringPref = "MyString"           // Write to prefs
+prefs.stringPref("MyString")            // Write to prefs
 val stringPref = prefs.stringPref()     // Read from prefs
+prefs.stringPref.put("MyString")        // Alternative write to prefs
+val stringPref = prefs.stringPref.get() // Alternative read from prefs
 ```
 
 ## Advanced usage
