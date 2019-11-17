@@ -83,6 +83,16 @@ val prefs = KryptoBuilder.keystore(context, "MyPrefs")
 val prefs = KryptoBuilder.hybrid(context, "MyPrefs")
 ``` 
 
+* **NoCrypt**: Nothing will be encrypted. Useful for cases where you want to wrap a **KryptoContext** around existing preferences (e.g. preference file from a PreferenceFragment).
+
+| API | Encryption | Hash | Key |
+|---|---|---|---|
+| 9+ | NoEncryption | NoHash | NoKey |
+
+```kotlin
+val prefs = KryptoBuilder.nocrypt(context, "MyPrefs")
+``` 
+
 ### Custom KryptoPref
 You can create your own **KryptoPref**:
 ```kotlin
