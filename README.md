@@ -16,7 +16,7 @@
     * **Asynchronous** reads and writes.
 
 ## Getting started
-Add the library to your project:
+Add the **library** to your project:
 ```groovy
 allprojects {
     repositories {
@@ -25,7 +25,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs:0.2'
+    implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs:0.3.0'
 }
 ```
 
@@ -45,8 +45,10 @@ class Prefs(prefs: KryptoPrefs): KryptoContext(prefs) {
 }
 
 val prefs = Prefs(KryptoBuilder.hybrid(context, "MyPrefs"))
-prefs.stringPref = "MyString"           // Write to prefs
+prefs.stringPref("MyString")            // Write to prefs
 val stringPref = prefs.stringPref()     // Read from prefs
+prefs.stringPref.put("MyString")        // Alternative write to prefs
+val stringPref = prefs.stringPref.get() // Alternative read from prefs
 ```
 
 ## Advanced usage
@@ -81,6 +83,16 @@ val prefs = KryptoBuilder.keystore(context, "MyPrefs")
 val prefs = KryptoBuilder.hybrid(context, "MyPrefs")
 ``` 
 
+* **NoCrypt**: Nothing will be encrypted. Useful for cases where you want to wrap a **KryptoContext** around existing preferences (e.g. preference file from a PreferenceFragment).
+
+| API | Encryption | Hash | Key |
+|---|---|---|---|
+| 9+ | NoEncryption | NoHash | NoKey |
+
+```kotlin
+val prefs = KryptoBuilder.nocrypt(context, "MyPrefs")
+``` 
+
 ### Custom KryptoPref
 You can create your own **KryptoPref**:
 ```kotlin
@@ -97,7 +109,7 @@ stringPref.getAsync { newValue = it }
 ### Using custom types, collections and JSON
 Add kryptoprefs-gson to your project:
 ```groovy
-implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs-gson:0.2'
+implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs-gson:0.3.0'
 ```
 Use **json** type in your **KryptoContext**:
 ```kotlin
