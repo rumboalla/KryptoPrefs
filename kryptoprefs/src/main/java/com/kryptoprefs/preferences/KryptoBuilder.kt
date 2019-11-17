@@ -5,9 +5,12 @@ import android.content.Context
 import android.security.keystore.KeyProperties
 import com.kryptoprefs.preferences.encryption.AesCbcEncryption
 import com.kryptoprefs.preferences.encryption.AesGcmEncryption
+import com.kryptoprefs.preferences.encryption.NoEncryption
+import com.kryptoprefs.preferences.hash.NoHash
 import com.kryptoprefs.preferences.hash.Sha512Hash
 import com.kryptoprefs.preferences.key.HybridKey
 import com.kryptoprefs.preferences.key.KeyStoreKey
+import com.kryptoprefs.preferences.key.NoKey
 import com.kryptoprefs.preferences.key.PbeKey
 import com.kryptoprefs.preferences.key.Pbkdf2Key
 
@@ -33,5 +36,8 @@ object KryptoBuilder {
         val key = HybridKey(context, name)
         return KryptoPrefsImpl(context, name, AesGcmEncryption(), Sha512Hash(), key)
     }
+
+    @JvmStatic
+    fun nocrypt(context: Context, name: String) : KryptoPrefs = KryptoPrefsImpl(context, name, NoEncryption(), NoHash(), NoKey())
 
 }

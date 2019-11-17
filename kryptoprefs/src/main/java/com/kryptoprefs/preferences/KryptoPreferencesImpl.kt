@@ -75,7 +75,10 @@ class KryptoPrefsImpl internal constructor(
         if (preferences.all.isEmpty()) {
             putString(KEY_ENCRYPTION_TAG, tag)
         } else {
-            if (getString(KEY_ENCRYPTION_TAG, null) != tag) {
+            val t = getString(KEY_ENCRYPTION_TAG, null)
+            if (t == null) {
+                putString(KEY_ENCRYPTION_TAG, tag)
+            } else if(t != tag) {
                 throw KeyException("File is using different encryption method or key.")
             }
         }

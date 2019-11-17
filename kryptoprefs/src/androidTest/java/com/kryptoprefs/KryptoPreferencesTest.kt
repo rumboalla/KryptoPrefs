@@ -38,7 +38,7 @@ class KryptoPrefsTest {
         @JvmStatic
         @Parameterized.Parameters
         fun data(): Array<Any> = arrayOf("00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16",
-                "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34")
+                "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35")
 
         private const val fixedPass = "6wT7N2C#k#Tv+53DcLX@8d@-9t7-wScWZc@=PeTr?XLkG9VB3K!_mphjC^+aL%y_"
         private const val prefsName = "name"
@@ -106,6 +106,7 @@ class KryptoPrefsTest {
             "32" -> KryptoBuilder.pref(context, prefsName, fixedPass, salt, 19)
             "33" -> KryptoBuilder.keystore(context, prefsName)
             "34" -> KryptoBuilder.hybrid(context, prefsName)
+            "35" -> KryptoBuilder.nocrypt(context, prefsName)
 
             else -> throw RuntimeException("Invalid value.")
         }

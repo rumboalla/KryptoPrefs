@@ -64,7 +64,7 @@ class KryptoContextTest {
         @JvmStatic
         @Parameterized.Parameters
         fun data(): Array<Any> = arrayOf("00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16",
-                "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34")
+                "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35")
     }
 
     private val context: Context = InstrumentationRegistry.getContext()
@@ -126,6 +126,7 @@ class KryptoContextTest {
             "32" -> KryptoBuilder.pref(context, prefsName, fixedPass, salt, 19)
             "33" -> KryptoBuilder.keystore(context, prefsName)
             "34" -> KryptoBuilder.hybrid(context, prefsName)
+            "35" -> KryptoBuilder.nocrypt(context, prefsName)
 
             else -> throw RuntimeException("Invalid value.")
         }
@@ -444,14 +445,6 @@ class KryptoContextTest {
 
         assertThat(prefs.intPrefBacked()).isEqualTo(intDefaultValue)
         assertThat(prefs.nullStringPrefBacked()).isEqualTo(null)
-    }
-
-    @Test
-    fun test() {
-//        val l = listOf("String", "Test", "dfjsodklfj")
-//        prefs.json(l)
-//        val j = prefs.json()
-//        assertThat(j == l)
     }
 
     @Test
