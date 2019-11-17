@@ -16,7 +16,7 @@
     * **Asynchronous** reads and writes.
 
 ## Getting started
-Add the library to your project:
+Add the **library** to your project:
 ```groovy
 allprojects {
     repositories {
