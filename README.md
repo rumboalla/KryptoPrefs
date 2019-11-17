@@ -83,7 +83,7 @@ val prefs = KryptoBuilder.keystore(context, "MyPrefs")
 val prefs = KryptoBuilder.hybrid(context, "MyPrefs")
 ``` 
 
-* **NoCrypt**: Nothing will be encrypted. Useful for cases where you want to wrap a **KryptoContext** around existing preferences (e.g. preference file from a PreferenceFragment).
+* **NoCrypt**: Nothing will be encrypted.
 
 | API | Encryption | Hash | Key |
 |---|---|---|---|
