@@ -1,1 +1,1 @@
-include ':kryptoprefs', ':kryptoprefs-gson'
+include ':kryptoprefs', ':kryptoprefs-gson', ':kryptoprefs-moshi'
