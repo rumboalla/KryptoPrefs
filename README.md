@@ -1,4 +1,4 @@
-# KryptoPrefs [![](https://jitpack.io/v/rumboalla/KryptoPrefs.svg)](https://jitpack.io/#rumboalla/KryptoPrefs) [![](https://github.com/rumboalla/KryptoPrefs/workflows/Android%20Tests/badge.svg)](https://github.com/rumboalla/KryptoPrefs/actions?query=workflow%3A%22Android+Tests%22)
+# KryptoPrefs [![](https://jitpack.io/v/rumboalla/KryptoPrefs.svg)](https://jitpack.io/#rumboalla/KryptoPrefs) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-KryptoPrefs-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/7948) [![](https://github.com/rumboalla/KryptoPrefs/workflows/Android%20Tests/badge.svg)](https://github.com/rumboalla/KryptoPrefs/actions?query=workflow%3A%22Android+Tests%22)
 **KryptoPrefs** is an open source Kotlin library for handling encrypted SharedPreferences in Android.
 
 ## Features
@@ -12,7 +12,7 @@
     * Types can be **nullable**.
     * Types can be **memory backed**.
     * Types can be **observed**.
-    * **Custom types** with your custom transform (e.g. **JSON**).
+    * **Custom types** with your custom transform (e.g. **JSON**). Provided transforms for **Gson** and **Moshi**.
     * **Asynchronous** reads and writes.
 
 ## Getting started
@@ -25,7 +25,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs:0.3.0'
+    implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs:0.4.0'
 }
 ```
 
@@ -83,7 +83,7 @@ val prefs = KryptoBuilder.keystore(context, "MyPrefs")
 val prefs = KryptoBuilder.hybrid(context, "MyPrefs")
 ``` 
 
-* **NoCrypt**: Nothing will be encrypted. Useful for cases where you want to wrap a **KryptoContext** around existing preferences (e.g. preference file from a PreferenceFragment).
+* **NoCrypt**: Nothing will be encrypted.
 
 | API | Encryption | Hash | Key |
 |---|---|---|---|
@@ -109,7 +109,11 @@ stringPref.getAsync { newValue = it }
 ### Using custom types, collections and JSON
 Add kryptoprefs-gson to your project:
 ```groovy
-implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs-gson:0.3.0'
+implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs-gson:0.4.0'
+```
+**Or** kryptoprefs-moshi:
+```groovy
+implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs-gson:0.4.0'
 ```
 Use **json** type in your **KryptoContext**:
 ```kotlin
