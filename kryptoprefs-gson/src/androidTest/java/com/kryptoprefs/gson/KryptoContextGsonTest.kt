@@ -3,8 +3,8 @@ package com.kryptoprefs.gson
 import android.content.Context
 import android.support.test.InstrumentationRegistry
 import com.google.common.truth.Truth.assertThat
-import com.kryptoprefs.invoke
 import com.kryptoprefs.context.KryptoContext
+import com.kryptoprefs.invoke
 import com.kryptoprefs.preferences.KryptoBuilder
 import com.kryptoprefs.preferences.KryptoPrefs
 import org.junit.Before
@@ -55,16 +55,22 @@ class KryptoContextGsonTest {
 		// listPref
 		assertThat(prefs.listPref() == emptyList<TestClass>())
 		prefs.listPref(listOf(TestClass(1, "1"), TestClass(2, "2")))
+		assertThat(prefs.listPref().first().id == 1)
+		assertThat(prefs.listPref().first().text == "1")
 		assertThat(prefs.listPref() == listOf(TestClass(1, "1"), TestClass(2, "2")))
 
 		// listPrefBacked
 		assertThat(prefs.listPrefBacked() == emptyList<TestClass>())
 		prefs.listPrefBacked(listOf(TestClass(1, "1"), TestClass(2, "2")))
+		assertThat(prefs.listPrefBacked().first().id == 1)
+		assertThat(prefs.listPrefBacked().first().text == "1")
 		assertThat(prefs.listPrefBacked() == listOf(TestClass(1, "1"), TestClass(2, "2")))
 
 		// nullListPref
 		assertThat(prefs.nullListPref() == null)
 		prefs.nullListPref(listOf(TestClass(1, "1"), TestClass(2, "2")))
+		assertThat(prefs.nullListPref()?.first()?.id == 1)
+		assertThat(prefs.nullListPref()?.first()?.text == "1")
 		assertThat(prefs.nullListPref() == listOf(TestClass(1, "1"), TestClass(2, "2")))
 		prefs.nullListPref(null)
 		assertThat(prefs.nullListPref() == null)
@@ -72,6 +78,8 @@ class KryptoContextGsonTest {
 		// nullListPrefBacked
 		assertThat(prefs.nullListPrefBacked() == null)
 		prefs.nullListPrefBacked(listOf(TestClass(1, "1"), TestClass(2, "2")))
+		assertThat(prefs.nullListPrefBacked()?.first()?.id == 1)
+		assertThat(prefs.nullListPrefBacked()?.first()?.text == "1")
 		assertThat(prefs.nullListPrefBacked() == listOf(TestClass(1, "1"), TestClass(2, "2")))
 		prefs.nullListPrefBacked(null)
 		assertThat(prefs.nullListPrefBacked() == null)
@@ -91,4 +99,5 @@ class TestPreference(prefs: KryptoPrefs) : KryptoContext(prefs) {
 	val listPrefBacked = json("listPrefBacked", emptyList<TestClass>(), true)
 	val nullListPref = json<List<TestClass>>("nullListPref", null)
 	val nullListPrefBacked = json<List<TestClass>>("nullListPrefBacked", null)
+
 }
