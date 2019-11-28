@@ -113,7 +113,7 @@ implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs-gson:0.4.1'
 ```
 **Or** kryptoprefs-moshi:
 ```groovy
-implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs-gson:0.4.1'
+implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs-moshi:0.4.1'
 ```
 Use **json** type in your **KryptoContext**:
 ```kotlin
