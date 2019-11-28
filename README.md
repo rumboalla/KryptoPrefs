@@ -12,7 +12,7 @@
     * Types can be **nullable**.
     * Types can be **memory backed**.
     * Types can be **observed**.
-    * **Custom types** with your custom transform (e.g. **JSON**).
+    * **Custom types** with your custom transform (e.g. **JSON**). Provided transforms for **Gson** and **Moshi**.
     * **Asynchronous** reads and writes.
 
 ## Getting started
@@ -25,7 +25,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs:0.3.1'
+    implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs:0.4.0'
 }
 ```
 
@@ -109,7 +109,11 @@ stringPref.getAsync { newValue = it }
 ### Using custom types, collections and JSON
 Add kryptoprefs-gson to your project:
 ```groovy
-implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs-gson:0.3.1'
+implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs-gson:0.4.0'
+```
+**Or** kryptoprefs-moshi:
+```groovy
+implementation 'com.github.rumboalla.KryptoPrefs:kryptoprefs-gson:0.4.0'
 ```
 Use **json** type in your **KryptoContext**:
 ```kotlin
